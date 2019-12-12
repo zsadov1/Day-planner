@@ -1,24 +1,3 @@
-function initializeSchedule () {
-
-    // 1. first grab the data we ALREADY have
-    let data = JSON.parse(window.localStorage.getItem("dayPlanner"));
-     // 2. update the data with our new time key and task value  
-    let schedule = { ...data };
-
-    document.getElementById('nineAm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('tenAm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('elevenAm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('twelvePm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('onePm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('twoPm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('threePm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('fourPm').value = schedule['9am'] ? schedule['9am'] : '';
-    document.getElementById('fivePm').value = schedule['9am'] ? schedule['9am'] : '';
-
-}
-
-
-
 
 function renderTime() {
 
@@ -51,16 +30,50 @@ function renderTime() {
 
 }
 renderTime();
-function addItemToDay( time, taskInputId) {
 
-   const task = document.getElementById(taskIputId).value; 
 
-    let dayPlannerData = JSON.parse(window.localStorage.getItem("dayPlanner"));
+const dayPlanner = {
+    "9am": "Brush teeth",
+    "10am": "Go to work",
+    "11am": "Log in to computer"
+  }
+  
 
-    let updateSchedule = {...data, [time]: taskinput };
+function initializeSchedule () {
 
-    windown.localStroage.setItem("dayPlanner", JSON.stringify(updateSchedule));
+    // 1. first grab the data we ALREADY have
+    let data = JSON.parse(window.localStorage.getItem("dayPlanner"));
+     // 2. update the data with our new time key and task value  
+    let schedule = { ...data };
+
+    document.getElementById('nineAm').value = schedule['9am'] ? schedule['9am'] : '';
+    document.getElementById('tenAm').value = schedule['10am'] ? schedule['10am'] : '';
+    document.getElementById('elevenAm').value = schedule['11am'] ? schedule['11am'] : '';
+    document.getElementById('twelvePm').value = schedule['12pm'] ? schedule['12pm'] : '';
+    document.getElementById('onePm').value = schedule['1pm'] ? schedule['1pm'] : '';
+    document.getElementById('twoPm').value = schedule['2pm'] ? schedule['2pm'] : '';
+    document.getElementById('threePm').value = schedule['3pm'] ? schedule['3pm'] : '';
+    document.getElementById('fourPm').value = schedule['4pm'] ? schedule['4pm'] : '';
+    document.getElementById('fivePm').value = schedule['5pm'] ? schedule['5pm'] : '';
 
 }
 
-addItemToDay();
+initializeSchedule();
+
+function addItemToDay( timeKey, taskInputId) {
+
+    const task = document.getElementById(taskInputId).value;
+ 
+      // 1. first grab the data we ALREADY have
+     let data = JSON.parse(window.localStorage.getItem("dayPlanner"));
+ 
+      // 2. update the data with our new time key and task value 
+     let updateSchedule = { ...data, [timeKey]: task };
+ 
+     // 3. re-save the data to local storage
+     window.localStorage.setItem("dayPlanner", JSON.stringify(updateSchedule));
+ 
+ }
+ 
+ 
+
