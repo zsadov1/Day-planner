@@ -1,4 +1,12 @@
 
+function displayDate() {
+    var date  = moment().format("LL");
+    document.getElementById("today").innerHTML = date
+}
+
+displayDate(); 
+
+
 function renderTime() {
 
     var currentTime = new Date();
@@ -30,6 +38,7 @@ function renderTime() {
 
 }
 renderTime();
+
 
 
 const dayPlanner = {
