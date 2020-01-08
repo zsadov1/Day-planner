@@ -4,24 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href = "style.css" />
+    <link rel="stylesheet" type="text/css" href = "css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="lib/moment/moment.min.js"></script>
 </head>
-<body>
+<body class="background">
 
 
     <div class= "container">
-        <h1>Day Planner
-        <p class="simple">A simple planner for your work day</p>
+        <h1> The Simple Day Planner
+        <p class="simple">A planner for your work day</p>
         <span id="today"></span>
+        <span id="clockDisplay"></span>
         </h1>
-        
-        <p></p>
 
-        <div id="clockDisplay" class="clockStyle"></div>
-
-         <p></p>
 
     <table class="table table-hover table-dark">
         <thead>
@@ -35,7 +31,7 @@
         <tbody>
           <tr>
             <th scope="row">9AM</th>
-            <td><input   id="nineAm" type="text" class="form-control" placeholder="Lets Plan!"></td>
+            <td><input  mt="9" id="nineAm" type="text" class="form-control" placeholder="Lets Plan!"></td>
             <td><button onclick="addItemToDay(`9am` , `nineAm`)" type="button" class="btn btn-secondary">💾</button></td>
           </tr>
           <tr>
@@ -81,9 +77,17 @@
         </tbody>
       </table>
     </div>
+
+    
+      <footer class="footer">
+        <div class="container">
+        Zachary Sadovszky &copy;
+        </div>
+      </footer>
+    
 </body>
 
 <script src="lib/moment/moment.min.js"></script>
 <script>console.log(moment())</script>
-<script src="script.js"></script>
+<script src="javascript/script.js"></script>
 </html>

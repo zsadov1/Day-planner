@@ -1,10 +1,11 @@
 
 function displayDate() {
-    var date  = moment().format("LL");
+    var date  = moment().format("MMM Do YY");
     document.getElementById("today").innerHTML = date
 }
 
 displayDate(); 
+
 
 
 function renderTime() {
@@ -39,14 +40,6 @@ function renderTime() {
 }
 renderTime();
 
-
-
-const dayPlanner = {
-    "9am": "Brush teeth",
-    "10am": "Go to work",
-    "11am": "Log in to computer"
-  }
-  
 
 function initializeSchedule () {
 
@@ -85,4 +78,15 @@ function addItemToDay( timeKey, taskInputId) {
  }
  
  
+ $("input").each(function() {
+     var timeMT = $(this).attr("mt")
+     var currentTime = moment().format("H");
 
+     if (timeMT > currentTime) {
+        $(this).css("background-color" , "Gainsboro");
+    } else if (timeMT < currentTime) {
+        $(this).css("background-color", "Grey");
+    } else {
+        $(this).css("background-color", "white")
+    };
+ });
