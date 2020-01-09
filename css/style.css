@@ -20,6 +20,7 @@ h1 {
 
 table{
     padding: 30px;
+    margin-bottom: 25px;
 }
 
 /* Footer */
@@ -33,6 +34,8 @@ footer {
     text-align: center;
     background: #666666;
     border-top: 8px solid black;
-    height: 50px;
+    height: 75px;
+    position: fixed;
     width: 100%;
+    bottom: 0;
   }
